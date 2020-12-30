@@ -3,5 +3,5 @@
 
 ### 创建项目
 ```
-  vue create --preset github:github.com:tengli1990/vue-template my-project
+  vue create --preset github:github.com:tengli1990/vue-antd-admin my-project
 ```
