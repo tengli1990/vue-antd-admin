@@ -1,0 +1,69 @@
+@import "~ant-design-vue/es/style/themes/default.less";
+
+/deep/ .ant-pro-sider-menu-logo {
+  background: #281444;
+}
+
+/deep/ .ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+  background: #281444;
+}
+
+/deep/ .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #1C0C33;
+}
+
+/deep/ .ant-calendar-picker-icon{
+  position: relative;
+  top: 0;
+  right:0;
+  
+}
+
+.ant-pro-basicLayout-content {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  /deep/ .ant-pro-basicLayout-children-content-wrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  /deep/ .ant-pro-grid-content {
+    height: 100%;
+  }
+}
+
+.ant-pro-global-header-index-right {
+  margin-right: 8px;
+
+  &.ant-pro-global-header-index-dark {
+    .ant-pro-global-header-index-action {
+      color: hsla(0, 0%, 100%, .85);
+
+      &:hover {
+        background: #1890ff;
+      }
+    }
+  }
+
+  .ant-pro-account-avatar {
+    .antd-pro-global-header-index-avatar {
+      margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
+      margin-right: 8px;
+      color: @primary-color;
+      vertical-align: top;
+      background: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  .menu {
+    .anticon {
+      margin-right: 8px;
+    }
+
+    .ant-dropdown-menu-item {
+      min-width: 100px;
+    }
+  }
+}

@@ -1,0 +1,335 @@
+@import '~ant-design-vue/es/style/themes/default.less';
+@import './antd-reset.less';
+
+html,
+body,
+#app,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout.layout-basic {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// 数据列表 样式
+.table-alert {
+  margin-bottom: 16px;
+}
+
+// 数据列表 操作
+.table-operator {
+  margin-bottom: 18px;
+
+  button {
+    margin-right: 8px;
+  }
+}
+
+// 数据列表 搜索条件
+.table-page-search-wrapper {
+  .ant-form-inline {
+    .ant-form-item {
+      display: flex;
+      margin-bottom: 24px;
+      margin-right: 0;
+
+      .ant-form-item-control-wrapper {
+        flex: 1 1;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      > .ant-form-item-label {
+        line-height: 32px;
+        padding-right: 8px;
+        width: auto;
+      }
+
+      .ant-form-item-control {
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .table-page-search-submitButtons {
+    display: block;
+    margin-bottom: 24px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// utils
+.h-100 {
+  height: 100% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.flex-row {
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+
+.flex-column {
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+
+.flex-row-reverse {
+  -ms-flex-direction: row-reverse !important;
+  flex-direction: row-reverse !important;
+}
+
+.flex-column-reverse {
+  -ms-flex-direction: column-reverse !important;
+  flex-direction: column-reverse !important;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  -ms-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse !important;
+  flex-wrap: wrap-reverse !important;
+}
+
+.flex-fill {
+  -ms-flex: 1 1 auto !important;
+  flex: 1 1 auto !important;
+}
+
+.flex-grow-0 {
+  -ms-flex-positive: 0 !important;
+  flex-grow: 0 !important;
+}
+
+.flex-grow-1 {
+  -ms-flex-positive: 1 !important;
+  flex-grow: 1 !important;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-end {
+  justify-content: flex-end;
+}
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.m-24 {
+  margin: 24px !important;
+}
+
+.mx-24 {
+  margin-left: 24px !important;
+  margin-right: 24px !important;
+}
+
+.my-24 {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+.ml-24 {
+  margin-left: 24px !important;
+}
+
+.mr-24 {
+  margin-right: 24px !important;
+}
+
+.mt-24 {
+  margin-top: 24px !important;
+}
+
+.mb-24 {
+  margin-bottom: 24px !important;
+}
+
+.my-16 {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.ml-16 {
+  margin-left: 16px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.mr-16 {
+  margin-right: 16px !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mr-8 {
+  margin-right: 8px !important;
+}
+
+.mt-8 {
+  margin-bottom: 8px !important;
+}
+
+.p-24 {
+  padding: 24px !important;
+}
+
+.py-24 {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.px-24 {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+.pt-24 {
+  padding-top: 24px !important;
+}
+
+.pb-24 {
+  padding-bottom: 24px !important;
+}
+
+.pl-24 {
+  padding-left: 24px !important;
+}
+
+.py-16 {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.pt-16 {
+  padding-top: 16px !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.text-align-right {
+  text-align: right !important;
+}
+
+.width-input {
+  width: 220px !important;
+}
+
+.width-select {
+  width: 180px !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.global-title {
+  color: #252525 !important;
+  font-size: 16px !important;
+  line-height: 30px !important;
+  margin-bottom: 0;
+}
+
+.global-number {
+  color: #252525 !important;
+  font-size: 40px !important;
+  margin-bottom: 0;
+  line-height: 56px !important;
+}
+
+.global-pagination {
+  text-align: center;
+  padding: 24px 24px 0 24px;
+}
