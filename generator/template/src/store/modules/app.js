@@ -3,9 +3,7 @@ import enUS from 'ant-design-vue/lib/locale-provider/en_US'
 
 const app = {
   state: {
-    locale: zhCN,
-    sideCollapsed: false,
-    isMobile: true
+    locale: zhCN
   },
   mutations: {
     LOCALE_US: (state) => {

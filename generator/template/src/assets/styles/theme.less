@@ -1,0 +1,147 @@
+// -------- Colors -----------
+@primary-color: #108EE9;
+@primary-light-color:#1794EE;
+@primary-dark-color:#0880D6;
+@info-color: #40AFFF;
+@success-color: #3DBD7D;
+@processing-color: #3DBD7D;
+@error-color: #f56a00;
+@warning-color: #ffbf00;
+@normal-color: #d9d9d9;
+@white: #fff;
+@black: #253440;
+@black-light:#374755;
+
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
+@primary-1: fade(#5D788E,80%);
+
+// Color used by selected 
+@background-color-light:#5D788E;
+
+// Base Var 
+@heading-color: fade(@white, 100%); // 标题
+@text-color: fade(@white, 75%); // 正文
+@text-color-secondary:fade(@white, 50%); // 辅助
+@icon-color-hover: fade(@white, 75%);
+@divider-color:#70788C;
+@background-color-dark: @black-light; // background of header and selected item
+@component-background:#44596B;
+
+
+
+// Layout
+@layout-body-background: @black;
+
+// PageHeader
+@page-header-back-color: @heading-color;
+
+// Link
+@link-color: @info-color;
+
+// Tag
+@tag-prefix-cls: ~'@{ant-prefix}-tag';
+.@{tag-prefix-cls} {
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@preset-colors, @i);
+    @lightColor: '@{color}-1';
+    @lightBorderColor: '@{color}-3';
+    @darkColor: '@{color}-6';
+    &-@{color} {
+      color: @white;
+      background: @@darkColor;
+      border-color: @@darkColor;
+    }
+  }
+  .make-color-classes();
+}
+
+// Tabs
+@tabs-card-head-background: @background-color-dark;
+@tabs-card-active-color: @component-background;
+@tabs-card-active-color: #fff;
+
+// Pagination
+
+// .ant-pagination-item-active {
+//   border-color:@text-color;
+//   a{
+//     color: @heading-color;
+//   }
+// }
+
+
+// Disabled states
+@disabled-color: fade(@white, 50%);
+@disabled-bg: @black-light;
+
+// Border color
+@border-color-base: @divider-color; // base border outline a component
+@border-color-split: @black-light; // split border inside a component
+
+// Table
+@table-header-bg: @background-color-dark;
+@table-header-color: @heading-color;
+@table-selected-row-bg: @background-color-light; 
+@table-header-sort-bg: @table-header-sort-active-bg;
+
+// Form
+// -- Input
+@input-bg: @background-color-dark; //@component-background;
+
+// -- Select
+@select-dropdown-bg: @background-color-dark;
+@select-background: @background-color-dark;
+
+// -- Checkbox
+@checkbox-check-color:@black-light;
+@checkbox-border-width: @border-width-base;
+.ant-checkbox-checked .ant-checkbox-inner::after{
+  border-color:@white;
+}
+
+// --------------- Class Modify ---------------
+
+// Table
+.ant-table-content{
+  background:@component-background
+}
+
+// PageHeaderWrapper
+.ant-pro-global-header {
+  background: @component-background;
+}
+
+// Layout && SideMenu
+.ant-layout-sider-children {
+  background: linear-gradient(180deg, @component-background 0%, @component-background 30%, @black 100%);
+  border-right: 1px solid @divider-color;
+  .ant-menu,
+  #logo {
+    background: none;
+  }
+  .ant-menu {
+    .ant-menu-sub {
+      background: #374755;
+      box-shadow: none;
+    }
+  }
+}
+
+// Cascader
+.ant-cascader-input.ant-input{
+  background-color: @background-color-dark !important ;
+}
+
+// Calendar
+.ant-calendar{
+  border-color:@border-color-base;
+}
+.ant-calendar-input-wrap{
+  background-color: @background-color-dark;
+  // .ant-calendar-input{
+  //   background-color: @component-background;
+  // }
+}

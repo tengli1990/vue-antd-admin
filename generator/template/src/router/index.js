@@ -34,7 +34,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/',
-    name: 'IndexContain',
+    name: 'IndexWelcome',
     component: BasicLayout,
     redirect: '/welcome',
     meta: {
@@ -45,9 +45,6 @@ export const asyncRoutes = [
       IndexRouter,
       DemoRouter
     ]
-  },
-  {
-    path: '*', redirect: '/welcome', hidden: true, meta: { permission: true }
   }
 ]
 

@@ -54,6 +54,7 @@ import ConditionQuery from './conditionQuery'
 import Echarts from './echarts'
 <%_ } _%>
 import Toast from './toast'
+import PageHeaderWrapper from './pageHeaderWrapper'
 
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2248787_kcp707s15z.js'
@@ -100,7 +101,8 @@ const components = [
   <%_ if (options.echarts) { _%>
   Echarts,
   <%_ } _%>
-  ConditionQuery
+  ConditionQuery,
+  PageHeaderWrapper
 ]
 
 function install (Vue) {

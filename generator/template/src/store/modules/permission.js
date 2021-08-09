@@ -18,7 +18,20 @@ const actions = {
     return new Promise(resolve => {
       let availableRoutes = []
       availableRoutes = fliterAsyncRoutesByAccess(asyncRoutes, access)
+
       commit('SET_ROUTES', availableRoutes)
+      const defaultRoutes = filterDefaultRoutes(asyncRoutes)
+      for (const item of defaultRoutes) {
+        const { permissionId, path } = item
+        if (access.includes(permissionId)) {
+          availableRoutes.push(
+            {
+              path: '*', redirect: path, hidden: true, meta: { permission: true }
+            }
+          )
+          break
+        }
+      }
       resolve(availableRoutes)
     })
   },
@@ -42,7 +55,6 @@ const actions = {
  */
 export function fliterAsyncRoutesByAccess (routes, access) {
   const result = []
-  // console.log('st', routes, access)
   routes.forEach(route => {
     const tmp = { ...route }
     if (hasRouteAccess(access, tmp)) {
@@ -102,6 +114,33 @@ function hasPermission (roles, route) {
   } else {
     return true
   }
+}
+
+/**
+ * 获取默认重定向的页面
+ */
+function filterDefaultRoutes (routes) {
+  let defaultRoutes = []
+  const handleFn = (list) => {
+    list.map(item => {
+      const { children = [], meta = {}, path } = item
+      if (meta.default || meta.default === 0) {
+        defaultRoutes.push({ permissionId: meta.permission, path, index: Number(meta.default) })
+      }
+      if (children.length) {
+        handleFn(children)
+      }
+    })
+  }
+  handleFn(routes)
+
+  const compare = (property) => {
+    return function (a, b) {
+      return (a[property] - b[property])
+    }
+  }
+  defaultRoutes = defaultRoutes.sort(compare('index'))
+  return defaultRoutes
 }
 
 export default {

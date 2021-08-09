@@ -1,0 +1,23 @@
+[
+  {
+    "title":"数据统计",
+    "buttonId": "data",
+    "apiPath": null,
+    "type": "module"
+  },
+  {
+    "title":"数据概览",
+    "buttonId": "overview",
+    "apiPath": null,
+    "type": "page"
+  },
+  {
+    "title":"数据概览-下载资料",
+    "buttonId": "overview_download",
+    "apiPath": [
+      "/astrology/data-sync/list",
+      "/astrology/data-sync/summary"
+    ],
+    "type": "button"
+  }
+]

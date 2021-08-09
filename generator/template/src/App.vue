@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     <%_ if (options.echarts) { _%>
-    hasEchart () {}
+    // hasEchart () {}
     <%_ } _%>
   }
 }

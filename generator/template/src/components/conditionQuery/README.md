@@ -100,11 +100,11 @@ export default {
           bindKey: 'equipmentType',
           fieldNames: { name: 'label', value: 'code' },
           change: value => {
-            const equipmentPart = this.$getNodeTypeList('equipmentPart')
+            const equipmentPart = this.$getConstantList('equipmentPart')
             this.formConfig[4].defaultOptions = equipmentPart.filter(item => item.code.substring(0, 9) === value)
             return 'equipmentPart'
           },
-          options: this.$getNodeTypeList('equipmentType.type3')
+          options: this.$getConstantList('equipmentType.type3')
         },
         // 如果使用defaultOptions 清空也会重置defaultOptions
         {
@@ -158,7 +158,6 @@ export default {
       const { options, fuzzyType } = item
       // 模拟异步请求
       setTimeout(() => {
-        console.log('xxxx')
         options.push(...[
           {
             value: '1',

@@ -270,7 +270,6 @@ export default {
           ret = item.customValue(value)
         }
         // reset操作，清空defaultOptions的选项
-        console.log('item.defaultOptions', item.defaultOptions)
         if (type === 'reset' && item.defaultOptions) {
           item.defaultOptions = []
         }

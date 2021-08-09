@@ -9,16 +9,31 @@
     v-bind="settings"
   >
     <template slot="menuHeaderRender">
-      <div>
+      <div class="logo" :class="{'collapsed':collapsed}">
         <img :src="require('@/assets/images/logo.png')" />
-        <h1>{{ title }}</h1>
+        <h1>{{ title }} </h1>
       </div>
+
     </template>
 
     <template slot="rightContentRender">
       <right-content :topMenu="false" :theme="settings.theme" />
     </template>
-    <router-view />
+    <transition name="fade">
+      <a-config-provider :renderEmpty="renderEmpty">
+        <keepAlive>
+          <router-view v-if="$route.meta.keepAlive" class="page-main" />
+        </keepAlive>
+      </a-config-provider>
+    </transition>
+
+    <transition name="fade" >
+      <a-config-provider :renderEmpty="renderEmpty">
+        <router-view class="page-main" v-if="!$route.meta.keepAlive"/>
+      </a-config-provider>
+    </transition>
+
+    <template slot="footerRender"></template>
   </pro-layout>
 </template>
 
@@ -48,7 +63,7 @@ export default {
         primaryColor: '',
         fixedHeader: true, // sticky header
         fixSiderbar: true, // sticky siderbar
-        colorWeak: false
+        colorWeak: true
       },
       // 媒体查询
       query: {},
@@ -62,7 +77,10 @@ export default {
       const newRoutes = []
       if (routes && routes.children) {
         routes.children.forEach((route) => {
-          if (!(route.redirect && !route.children.length)) {
+          const { redirect, children, show } = route
+          if (show) {
+            newRoutes.push(route)
+          } else if (!(redirect && !(children && children.length))) {
             newRoutes.push(route)
           }
         })
@@ -71,11 +89,12 @@ export default {
     }
   },
   created () {},
-  mounted () {
-  },
+  mounted () {},
   methods: {
+    renderEmpty () {
+      return <a-empty class="mt-24 mb-24"/>
+    },
     handleMediaQuery (val) {
-      console.log(1111, val)
     },
     handleCollapse (val) {
       this.collapsed = val
@@ -86,4 +105,16 @@ export default {
 
 <style lang="less" scoped>
 @import "./BasicLayout.less";
+.page-main {
+  // overflow: hidden;
+  transition: 0.7s;
+  transform: translateX(0);
+  opacity: 1;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.1s;
+  transform: translateX(10px);
+  opacity: 0;
+}
 </style>

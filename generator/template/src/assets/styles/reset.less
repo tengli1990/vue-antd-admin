@@ -1,0 +1,49 @@
+html,
+body,
+#app,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// .ant-layout.layout-basic {
+//   height: 100vh;
+//   min-height: 100vh;
+// }
+
+canvas {
+  display: block;
+}
+
+p,
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+// 删除number默认控制加减的btn
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button  {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type='number']  {
+  -moz-appearance: textfield;
+}
+

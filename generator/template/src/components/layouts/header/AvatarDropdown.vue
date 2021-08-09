@@ -103,9 +103,7 @@ export default {
       }
     }
   },
-  created () {
-    // console.log(this.$t)
-  },
+  created () {},
   mounted () {
     this.userInfo = this.$store.getters.user
   },
@@ -128,7 +126,6 @@ export default {
     },
     confirmModifyPassword () {
       this.$refs.form.validate(valid => {
-        console.log(valid)
         if (valid) {
           const params = { ...this.form }
           delete params.confirmPassword

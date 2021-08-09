@@ -1,6 +1,8 @@
 import Cookies from 'js-cookie'
+import config from '@/config/settings'
+const { clientId } = config
 
-const TOKEN_KEY = 'token'
+const TOKEN_KEY = clientId + 'token'
 
 // 获取存储在本地的 user 信息
 export function getUser () {

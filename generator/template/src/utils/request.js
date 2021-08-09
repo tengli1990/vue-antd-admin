@@ -2,20 +2,22 @@ import axios from 'axios'
 import store from '@/store'
 import notification from 'ant-design-vue/es/notification'
 import router from '@/router'
-import { getToken } from '@/utils/token'
-import * as statusCode from '@/assets/statusCode.json'
+import { getToken } from './token'
+import * as statusCode from './constant/code.json'
 
 // 创建 axios 实例
 const request = axios.create({
   // API 请求的默认前缀
   baseURL: process.env.VUE_APP_API_BASE_URL,
-  timeout: 6000 // 请求超时时间
+  timeout: 6000, // 请求超时时间
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 // 异常拦截处理器
 const errorHandler = (error) => {
-  console.log(error, error.response)
-
+  alert(111)
   if (!error.response) {
     // TODO: 是否需要换成确认框重新刷新的操作
     notification.error({

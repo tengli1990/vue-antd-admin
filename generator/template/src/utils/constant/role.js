@@ -74,7 +74,7 @@ import {
   ACCOUNT_DEPARTMENT_MODIFY,
   ACCOUNT_DEPARTMENT_DELETE
 
-} from './permissions'
+} from './permission'
 
 /**
  * @name 页面添加操作

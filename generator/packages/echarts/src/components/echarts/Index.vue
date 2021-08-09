@@ -1,9 +1,8 @@
 <template>
-  <div class="as-echarts">
-    <div ref="container" :style="initStyle" class="echarts-container"></div>
+  <div class="as-echarts" :style="initStyle" ref="asEcharts">
+    <div ref="container" class="echarts-container"></div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'AsEcharts',
@@ -26,7 +25,8 @@ export default {
       size: {
         width: 'auto',
         height: 'auto'
-      }
+      },
+      erd: null
     }
   },
   computed: {
@@ -71,8 +71,14 @@ export default {
     },
     // 渲染数据
     updateEchart () {
-      this.echart.resize(this.size)
       this.echart.setOption(this.options)
+      this.echart.resize(this.size)
+    },
+    setDataset (dataset) {
+      this.options.dataset = dataset
+    },
+    setOption (options) {
+      this.$emit('input', { ...this.options, ...options })
     },
     /**
      * @param {String} name
@@ -80,18 +86,26 @@ export default {
      */
     onChartEvent (name, handler) {
       this.echart.off(name)
-      this.echart.on(name, (params) => {
+      this.echart.on(name, params => {
         handler(params)
       })
+    },
+    clear () {
+      this.echart.setOption({ dataset: {} })
+    },
+    getInstance () {
+      return this.echart
     }
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .as-echarts {
-  background-color: #fff;
   padding-bottom: 16px;
   width: 100%;
+  .echarts-container {
+    height: 100%;
+  }
 }
 </style>

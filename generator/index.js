@@ -1,8 +1,10 @@
 module.exports = (api, options, rootOptions) => {
-  console.log('options',options, 'rootOptions',rootOptions)
+  console.log('rootOptions',rootOptions)
+  console.log('options',options)
+  options.clientId = `pi2star${Date.now()}`
   // 命令&基础信息
   api.extendPackage({
-    name: "vue-admin",
+    name: rootOptions.projectName,
     version: "1.0.0",
     private: true,
     scripts: {
@@ -86,17 +88,14 @@ module.exports = (api, options, rootOptions) => {
 
 
   // 项目目录
-  api.render('./template');
+  api.render('./template',{
+    ...options,
+  });
 
   // 配置文件
   api.render({
-    './.env': './base-config/_env',
-    './.env.testing': './base-config/_env.testing',
-    './.env.production': './base-config/_env.production',
-    './.eslintrc.js': './base-config/_eslintrc.js',
-    './.gitignore': './base-config/_gitignore',
-    './.prettierrc': './base-config/_prettierrc'
-  });
+    './README.md':'./template/README.md'
+  },rootOptions);
 
 
   // 屏蔽 generator 之后的文件写入操作

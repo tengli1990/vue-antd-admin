@@ -1,10 +1,10 @@
-import { RouteView } from '@/components/layouts'
-import * as PERMISSION from '@/config/permissions'
+import { PageView } from '@/components/layouts'
+import * as PERMISSION from '@/utils/constant/permission'
 
 const VisualRouter = {
   name: 'Visual',
   path: '/visual',
-  component: RouteView,
+  component: PageView,
   redirect: '/visual/data',
   meta: {
     title: '大屏展示',
